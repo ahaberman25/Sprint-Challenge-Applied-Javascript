@@ -17,3 +17,42 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function createCarousel() {
+
+  let carouselAnchor = document.querySelector('.carousel-container')
+
+  let carouselContainer = document.createElement('div')
+  carouselContainer.classList.add('carousel')
+
+  let carouselImages = ['./assets/carousel/mountains.jpeg', './assets/carousel/computer.jpeg', './assets/carousel/trees.jpeg', './assets/carousel/turntable.jpeg']
+  
+  let carouselLeftBtn = document.createElement('div')
+  carouselLeftBtn.classList.add('left-button')
+  carouselLeftBtn.textContent = ' < '
+  let carouselImgContainer = document.createElement('img')
+  carouselContainer.appendChild(carouselImgContainer)
+  console.log(carouselContainer)
+  let imgOn = 0
+
+  for (i = 0; i <= carouselImages.length; i++) {
+    carouselLeftBtn.addEventListener('click', e => {
+        console.log(i)
+        carouselImgContainer.src = carouselImages[imgOn-1]
+        carouselImgContainer.style.display = 'block'
+
+    })
+  }
+
+  let carouselRightBtn = document.createElement('div')
+  carouselRightBtn.classList.add('right-button')
+  carouselRightBtn.textContent = ' > '
+
+  carouselAnchor.appendChild(carouselContainer)
+  carouselContainer.appendChild(carouselLeftBtn)  
+  carouselContainer.appendChild(carouselRightBtn)
+
+  return carouselAnchor;
+}
+
+createCarousel();
